@@ -31,7 +31,7 @@
 (def angles (range 0 (/ q/PI 2) step))
 
 (def rotated-polygons
-  (map #(identity [(rotate-points polygon %1) %1]) angles))
+  (map #(identity [(rotate-points polygon %) %]) angles))
 
 (def best-polygon-rotation
   (apply min-key (comp measure first) rotated-polygons))
